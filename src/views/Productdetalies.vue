@@ -6,7 +6,7 @@
 
 <template>
     <div>
-   
+        <h3>product detalies</h3>
     </div>
 </template>
 
