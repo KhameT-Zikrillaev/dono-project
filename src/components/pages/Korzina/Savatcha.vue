@@ -71,7 +71,7 @@ function deletproduct(item){
                       <h3 class=" text-[16px] p768:text-[18px] font-bold ">{{item?.name}}
                      </h3>
 
-                      <div class="flex  p480:w-[100px] p768:w-[150px] h-[40px]  rounded-md justify-between">
+                      <div class="flex w-[100px] p768:w-[150px] h-[40px]  rounded-md justify-between">
                         <button @click="minus(item),CounterStore.totalproductprice(),CounterStore.totalbasketnumb()" class="w-[25%] bg-[#F77F00] text-[30px] flex items-center justify-center text-white rounded-l-md">-</button>
                         <span class="w-[50%] flex items-center justify-center font-semibold border-t border-b border-[#C4C4C4]">{{item?.amount}} шт</span>
                         <button @click="item.amount++,CounterStore.totalproductprice(),CounterStore.totalbasketnumb()" class="w-[25%] bg-[#F77F00] text-[30px] flex items-center justify-center text-white rounded-r-md">+</button>
