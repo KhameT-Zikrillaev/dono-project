@@ -113,7 +113,7 @@ const filterProductCount = computed(() => CounterStore.filterproduct.length);
 
 
                     <RouterLink  v-if="!CounterStore.profilactivated" to="/korzinaoff" class="flex flex-col items-center relative" >
-                        <img class="w-[30px] h-[30px]" src="@/assets/icon/cart.svg" alt="Cart">Korzinkagit
+                        <img class="w-[30px] h-[30px]" src="@/assets/icon/cart.svg" alt="Cart">Korzinka
                     </RouterLink>
 
 
