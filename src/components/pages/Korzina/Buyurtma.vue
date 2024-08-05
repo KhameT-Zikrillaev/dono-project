@@ -20,7 +20,16 @@ const isFavorite = ref(false);
 
 if(CounterStore.oneuser === null){
 router.push('/login')
-}
+};
+
+if(CounterStore.oneuser?.tovar?.length >0){
+    
+  } else{
+    router.push('/')
+  }
+
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~zakaz~~~~~~~~~~~~~~~~~~~~~~~
 function buyurtma(){
 const formattedProductStrings = CounterStore.oneuser?.tovar?.map(product => `${product.name} (${product.amount} шт)`);

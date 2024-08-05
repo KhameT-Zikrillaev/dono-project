@@ -3,20 +3,31 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter()
 import { useCounterStore } from "@/stores/counter";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css'
 const CounterStore = useCounterStore() 
 CounterStore.scrollTop()
 CounterStore.totalproductprice()
 CounterStore.totalbasketnumb()
 
+const notifyXato = ()=>{
+  toast.error("Savatcha bo'sh",{
+    autoClose:1000,
+  });
+}
 if(CounterStore.oneuser === null){
 router.push('/')
 }
 
 
 function zakaz(){
-router.push('/buyurtma')
-
-}
+  if(CounterStore.oneuser.tovar.length >0){
+    router.push('/buyurtma')
+  } else{
+    notifyXato()
+    router.push('/korzina')
+  }
+} 
 
 function minus(item){
   CounterStore.totalproductprice()
