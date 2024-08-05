@@ -9,7 +9,7 @@ const productuser = ref(route.params.id)
 const newProducts = files.products.filter(product => product.sotuvchi === route.params.id);
 const CounterStore = useCounterStore();
 CounterStore.scrollTop()
-
+console.log('test')
 </script>
 
 <template>
