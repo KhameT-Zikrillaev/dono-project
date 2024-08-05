@@ -8,7 +8,11 @@ if(CounterStore.oneuser === null){
 router.push('/login')
 }
 
-
+setTimeout(() => {
+    CounterStore.oneuser.tovar =[];
+    router.push('/');
+    CounterStore.totalbasketnumb()
+  }, 3000);
 
 </script>
 

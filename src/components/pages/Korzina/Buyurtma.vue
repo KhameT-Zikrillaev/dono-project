@@ -33,7 +33,6 @@ const allsum = CounterStore.oneuser?.tovar?.reduce((total, product) => total + p
     router.push('/arizaqabul');
     }, 1000);
    CounterStore.addinfotovar();
-   CounterStore.oneuser.tovar =[];
    CounterStore.totalbasketnumb()
 }
 
