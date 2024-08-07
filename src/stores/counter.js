@@ -135,55 +135,58 @@ export const useCounterStore = defineStore('counter', {
     },
     addbasket(item) {
       if (this.oneuser && this.oneuser.tovar) {
-        const exists = this.oneuser.tovar.some(existingItem => existingItem.id === item.id);
-    
-        if (!exists) {
-          this.oneuser.tovar.push(item);
+        const existingItemIndex = this.oneuser.tovar.findIndex(existingItem => existingItem.id === item.id);
+        if (existingItemIndex !== -1) {
+          const existingItem = this.oneuser.tovar[existingItemIndex];
+          existingItem.amount++;
+
+          const numericPrice = parseFloat(existingItem.price.replace(/\s+/g, '').replace(',', '.'));
+          existingItem.totalsum = numericPrice * existingItem.amount;
+          this.oneuser.tovar[existingItemIndex] = { ...existingItem };
+
+        } else {
+          const numericPrice = parseFloat(item.price.replace(/\s+/g, '').replace(',', '.'));
+          this.oneuser.tovar.push({ ...item, totalsum: numericPrice * item.amount });
         }
+
+        this.totalproductprice();
+        this.totalbasketnumb();
       }
+
     },
     totalproductprice() {
       let totalSum = 0;
-    
-      this.oneuser?.tovar?.forEach((item) => {
 
+      this.oneuser?.tovar?.forEach((item) => {
         const itemTotalSum = item.totalsum;
-       
-    
         if (typeof itemTotalSum === 'number') {
           totalSum += itemTotalSum;
         }
       });
-    
+
       this.totalprice = totalSum;
-    
     },
     totalbasketnumb() {
       let totalSum = 0;
       this.oneuser?.tovar.forEach((item) => {
-        const itemTotalSum = item.amount;
-       
-        if (typeof itemTotalSum === 'number') {
-          totalSum += itemTotalSum;
+        const itemAmount = item.amount;
+        if (typeof itemAmount === 'number') {
+          totalSum += itemAmount;
         }
       });
-    
+
       this.totalbasketamount = totalSum;
     },
-    deleteTobasket(id, amount, totalsum) {
+    deleteTobasket(id) {
       const productIndex = this.oneuser?.tovar?.findIndex((item) => item.id === id);
       if (productIndex !== -1) {
-  
-        const productToUpdate = this.oneuser?.tovar?.find((item) => item.id === id);
-  
-
-        if (productToUpdate) {
-          productToUpdate.amount = 1; 
+        const productToRemove = this.oneuser?.tovar[productIndex];
+        if (productToRemove) {
+          this.totalbasketamount -= productToRemove.amount;
+          this.totalprice -= productToRemove.totalsum;
         }
-  
+
         this.oneuser?.tovar?.splice(productIndex, 1);
-        this.totalbasketamount -= amount;
-        this.totalprice -= totalsum;
       }
     },
     pcone(item){

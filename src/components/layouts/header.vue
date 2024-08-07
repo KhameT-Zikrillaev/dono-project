@@ -41,7 +41,6 @@ const filteredProducts = computed(() => {
 const totalBasketAmount = computed(() => 
     CounterStore.totalbasketamount
 );
-const filterProductCount = computed(() => CounterStore.filterproduct.length);
 </script>
 
 <template>
@@ -61,7 +60,7 @@ const filterProductCount = computed(() => CounterStore.filterproduct.length);
                     <button @click="activesearch = false" class="bg-[#F77F00] flex items-center justify-center w-[57px] border border-[#F77F00] h-[45px] rounded-tr-[10px] rounded-br-[10px] text-white p480:hidden">X</button>
 
                     <!-- ~~~~~~~~~~~~~~~~~~~~~~~search-menu modal(mini)~~~~~~~~~~~~~~~~~~~ -->
-                    <div v-if="filterProductCount > 0 && CounterStore.search.length >0" class="search-menu max-h-[400px] overflow-y-auto rounded-md shadow-2xl flex flex-col gap-y-2 w-[90%] p480:hidden top-[50px] p-2 bg-white absolute" :class="{ 'hidden': !activesearch }">
+                    <div v-if="filteredProducts.length > 0 && CounterStore.search.length >0" class="search-menu max-h-[400px] overflow-y-auto rounded-md shadow-2xl flex flex-col gap-y-2 w-[90%] p480:hidden top-[50px] p-2 bg-white absolute" :class="{ 'hidden': !activesearch }">
                         <RouterLink :to="'/product/' + item.id" v-for="item in filteredProducts" :key="item.id" class="search-menu-card rounded-md  py-[7px] px-[10px] flex items-center p480:items-start w-full hover:bg-slate-300" @click="handleLinkClick()">
                             <div class="search-menu-photo w-[55px] h-[50px] p-1 bg-white rounded-md">
                                 <img class="w-full h-full" :src="item.img" alt="Product Image">
@@ -78,7 +77,7 @@ const filterProductCount = computed(() => CounterStore.filterproduct.length);
                     </div>
 
                     <!-- ~~~~~~~~~~~~~~~~~~~~~~~search-menu modal(desktop)~~~~~~~~~~~~~~~~~~~ -->
-                    <div v-if="filterProductCount > 0 && CounterStore.search.length >0" class="search-menu max-h-[400px] rounded-md bg-white shadow-2xl hidden overflow-y-auto p480:flex flex-col gap-y-2 w-full top-[50px] p-2 absolute">
+                    <div v-if="filteredProducts.length > 0 && CounterStore.search.length >0" class="search-menu max-h-[400px] rounded-md bg-white shadow-2xl hidden overflow-y-auto p480:flex flex-col gap-y-2 w-full top-[50px] p-2 absolute">
                         <RouterLink :to="'/product/' + item.id" v-for="item in filteredProducts" :key="item.id" class="search-menu-card rounded-md hover:bg-slate-300 transition-all py-[4px] px-[6px] p768:py-[7px] p768:px-[10px] flex items-center p768:items-start  w-full" @click="handleLinkClick()">
                             <div class="search-menu-photo w-[55px] h-[45px] p-1 p768:w-[70px] p768:h-[65px] p768:p-3 bg-white rounded-md p768:rounded-3xl">
                                 <img class="w-full h-full" :src="item.img" alt="Product Image">

@@ -50,6 +50,7 @@ function kirish() {
         CounterStore.activecarT();
         CounterStore.addoneuser(userFound);
         notify();
+        CounterStore.totalbasketnumb()
         setTimeout(() => {
             router.push('/');
         }, 2000);
