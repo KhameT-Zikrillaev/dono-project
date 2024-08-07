@@ -6,7 +6,7 @@
         <h3 v-if="CounterStore.oneuser?.tovar.length === 0" class="text-[#7C797C] mt-[15px] text-[22px]">Savatcha bo’sh</h3>
       </div>
 
-      <div class="savatcha-info flex flex-col p992:flex-row justify-between mt-[50px] gap-[50px]">
+      <div class="savatcha-info flex flex-col p992:flex-row justify-between mt-[50px] gap-[30px] p1200:gap-[50px]">
         <div class="w-full flex flex-col gap-2">
           <div v-for="item in CounterStore.oneuser?.tovar" :key="item.id"
             class="savatcha-info-left relative flex flex-col p480:flex-row justify-between min-h-[153px] w-full bg-white shadow-md rounded-[8px] p-[10px]">
@@ -39,7 +39,7 @@
           <div class="flex-grow-1">
             <div class="flex justify-between items-center">
               <span class="text-[24px] font-bold">Umumiy</span>
-              <span class="text-[24px] p480:text-[22px] p768:text-[36px] text-[#F77F00] font-bold">{{ CounterStore.totalprice }} so’m</span>
+              <span class="text-[22px] p480:text-[22px] p768:text-[32px] text-[#F77F00] font-bold">{{ CounterStore.totalprice }} so’m</span>
             </div>
             <div class="flex justify-between items-center text-[18px] text-[#666666]">
               <span>Tovarlar ({{ CounterStore.totalbasketamount }})</span>

@@ -275,5 +275,5 @@ export const useCounterStore = defineStore('counter', {
 }
     
   },
-  persist: true,
+  persist:true,
 });
