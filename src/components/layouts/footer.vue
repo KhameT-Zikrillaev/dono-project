@@ -50,8 +50,8 @@
 
                 </div>
                 <div class="container-intro mt-[30px]  text-center p768:text-left p768:flex p768:justify-between">
-                   <p>&copy; 2021 Donauz</p>
-                    <h3>Sayt GREATSOFT kompaniyasi tomonidan ishlab chiqildi</h3>
+                    <p>&copy; 2024 Dona.uz</p>
+                    <h3>Sayt XamaSofT kompaniyasi tomonidan ishlab chiqildi</h3>
                 </div>
          
             </div>

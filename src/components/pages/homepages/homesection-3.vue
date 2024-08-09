@@ -62,7 +62,7 @@ const paginationOptions = {
 
             </div>
 
-            <div class="brands grid grid-cols-2 p480:grid-cols-3 p992:hidden justify-items-center gap-[25px]">
+            <div class="brands grid mt-[20px] p480:mt-[40px] grid-cols-2 p480:grid-cols-3 p992:hidden justify-items-center gap-[25px]">
                 <RouterLink :to="'/brand/' + item.name"  v-for="item in files.productsbrand" :key="item" class="brandcar flex justify-center items-center rounded-[8px] shadow-md max-w-[205px] w-full bg-white h-[100px] "><img :src="item.images" alt=""></RouterLink>
             </div>
 
